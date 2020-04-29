@@ -1,11 +1,11 @@
-var mysql = require('mysql');
+var express = require('express');
  
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',     // your root username
-  database : 'join_us'   // the name of your db
+var app = express();
+ 
+app.get("/", function(req, res){
+ res.send("HELLO FROM OUR WEB APP!");
 });
-connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
-   if (error) throw error;
-   console.log('The solution is: ', results[0].solution);
+ 
+app.listen(8080, function () {
+ console.log('App listening on port 8080!');
 });

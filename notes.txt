@@ -1,0 +1,11 @@
+app.get('/', (req, res) => {
+  let post = {First_Name:'Lil', Last_Name:'Wayne', Phone_Number:'706-555-3086'}; // Id_user set to Auto_Increment
+  let sql = 'INSERT INTO user SET ?';
+  let query = dBase.query(sql, post, (err, result) => {
+    if(err) throw err;
+    console.log(result);
+    res.send('Post 1 added...');
+  });
+});
+
+This is the more correct way to add stuff to a db, instead of directly handing in info, notice diff in tables also
